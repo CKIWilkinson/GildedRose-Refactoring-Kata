@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GildedRose\Items;
 
 class AgingItemQualityUpdater extends ItemQualityUpdater
 {
-    function calculateQuality(): void
+    public function calculateQuality(): void
     {
         $item = $this->item;
 
-        $item->quality += 1;
+        ++$item->quality;
 
         if ($item->sellIn <= 0) {
-            $item->quality += 1;
+            ++$item->quality;
         }
 
-        $item->sellIn -= 1;
+        --$item->sellIn;
     }
-
 }

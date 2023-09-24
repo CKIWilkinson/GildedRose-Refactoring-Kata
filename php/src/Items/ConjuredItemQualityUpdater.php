@@ -1,13 +1,12 @@
 <?php
 
-namespace GildedRose\Items;
+declare(strict_types=1);
 
-use GildedRose\Items\ItemQualityUpdater;
+namespace GildedRose\Items;
 
 class ConjuredItemQualityUpdater extends ItemQualityUpdater
 {
-
-    function calculateQuality()
+    public function calculateQuality()
     {
         $item = $this->item;
         $item->quality -= 2;
@@ -16,6 +15,6 @@ class ConjuredItemQualityUpdater extends ItemQualityUpdater
             $item->quality -= 4;
         }
 
-        $item->sellIn -= 1;
+        --$item->sellIn;
     }
 }

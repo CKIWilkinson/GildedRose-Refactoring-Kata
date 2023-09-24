@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GildedRose;
 
 interface QualityUpdateInterface
 {
-    function calculateQuality();
+    public function calculateQuality();
 }

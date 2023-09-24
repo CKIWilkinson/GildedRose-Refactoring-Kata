@@ -1,26 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace GildedRose\Items;
 
 class BackstagePassItemQualityUpdater extends ItemQualityUpdater
 {
-    function calculateQuality(): void
+    public function calculateQuality(): void
     {
         $item = $this->item;
-        $item->quality += 1;
+        ++$item->quality;
 
         if ($item->sellIn <= 10) {
-            $item->quality += 1;
+            ++$item->quality;
         }
 
         if ($item->sellIn <= 5) {
-            $item->quality += 1;
+            ++$item->quality;
         }
 
         if ($item->sellIn <= 0) {
             $item->quality = 0;
         }
 
-        $item->sellIn -= 1;
+        --$item->sellIn;
     }
 }
