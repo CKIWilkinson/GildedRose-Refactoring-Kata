@@ -122,6 +122,36 @@ class GildedRoseTest extends TestCase
         $this->assertSame(0, $item->quality);
     }
 
+    public function testQualityCannotBeBelow0(): void
+    {
+        $items = [new Item('item', 0, 0)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+
+        $item = $items[0];
+        $this->assertSame(0, $item->quality);
+    }
+
+    public function testQualityWhenSellinBelow0(): void
+    {
+        $items = [new Item('item', 0, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+
+        $item = $items[0];
+        $this->assertSame(8, $item->quality);
+    }
+
+    public function testBrieWhenSellinBelow0(): void
+    {
+        $items = [new Item(self::AGED_BRIE, 0, 10)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+
+        $item = $items[0];
+        $this->assertSame(12, $item->quality);
+    }
+
     public function testConjuredItemDegradation(): void
     {
         $items = [new Item(self::CONJURED_MANA_CAKE, 2, 50)];
