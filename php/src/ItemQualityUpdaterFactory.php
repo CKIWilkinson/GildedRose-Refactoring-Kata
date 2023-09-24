@@ -2,6 +2,7 @@
 
 namespace GildedRose;
 
+use GildedRose\Items\ConjuredItemQualityUpdater;
 use GildedRose\Items\ItemQualityUpdater;
 use GildedRose\Items\AgingItemQualityUpdater;
 use GildedRose\Items\BackstagePassItemQualityUpdater;
@@ -18,7 +19,7 @@ class ItemQualityUpdaterFactory
     const TYPE_MAP = [
         self::SULFURAS => LegendaryItemQualityUpdater::class,
         self::AGED_BRIE => AgingItemQualityUpdater::class,
-        self::CONJURED_MANA_CAKE => RegularItemQualityUpdater::class,
+        self::CONJURED_MANA_CAKE => ConjuredItemQualityUpdater::class,
         self::BACKSTAGE_PASS => BackstagePassItemQualityUpdater::class,
     ];
     public static function createItem(Item $item): ItemQualityUpdater
