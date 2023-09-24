@@ -4,5 +4,5 @@ namespace GildedRose;
 
 interface QualityUpdateInterface
 {
-    function updateQuality();
+    function calculateQuality();
 }

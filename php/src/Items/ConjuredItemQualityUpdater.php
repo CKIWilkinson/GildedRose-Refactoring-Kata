@@ -7,7 +7,7 @@ use GildedRose\Items\ItemQualityUpdater;
 class ConjuredItemQualityUpdater extends ItemQualityUpdater
 {
 
-    function updateQuality()
+    function calculateQuality()
     {
         $item = $this->item;
         $item->quality -= 2;
@@ -17,7 +17,5 @@ class ConjuredItemQualityUpdater extends ItemQualityUpdater
         }
 
         $item->sellIn -= 1;
-
-        $this->qualityRangeChecker();
     }
 }

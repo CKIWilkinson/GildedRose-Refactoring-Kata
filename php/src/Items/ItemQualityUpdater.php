@@ -12,6 +12,12 @@ abstract class ItemQualityUpdater implements QualityUpdateInterface
 
     }
 
+    public function updateQuality():void
+    {
+        $this->calculateQuality();
+        $this->qualityRangeChecker();
+    }
+
     protected function qualityRangeChecker()
     {
         if ($this->item->quality > 50) {

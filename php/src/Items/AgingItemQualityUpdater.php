@@ -4,7 +4,7 @@ namespace GildedRose\Items;
 
 class AgingItemQualityUpdater extends ItemQualityUpdater
 {
-    function updateQuality(): void
+    function calculateQuality(): void
     {
         $item = $this->item;
 
@@ -15,8 +15,6 @@ class AgingItemQualityUpdater extends ItemQualityUpdater
         }
 
         $item->sellIn -= 1;
-
-        $this->qualityRangeChecker();
     }
 
 }

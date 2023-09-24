@@ -4,7 +4,7 @@ namespace GildedRose\Items;
 
 class BackstagePassItemQualityUpdater extends ItemQualityUpdater
 {
-    function updateQuality(): void
+    function calculateQuality(): void
     {
         $item = $this->item;
         $item->quality += 1;
@@ -22,7 +22,5 @@ class BackstagePassItemQualityUpdater extends ItemQualityUpdater
         }
 
         $item->sellIn -= 1;
-
-        $this->qualityRangeChecker();
     }
 }
